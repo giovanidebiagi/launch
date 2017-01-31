@@ -1,0 +1,13 @@
+<launch>
+
+	<node name="imu_node" pkg="imu" type="imu_node">
+		<param name="serial_port" value="/dev/ttyBT" />
+	</node>
+	
+	<node name="conversion_node" pkg="imu" type="conversion_node" />
+
+	<node name="attitude_decision_quad" pkg="attitude_decision" type="attitude_decision_quad" output="screen" />
+
+	<include file="$(find labrom_mav_control)/launch/vrep_velocity.launch" />
+
+</launch>

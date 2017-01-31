@@ -1,0 +1,13 @@
+<launch>
+
+	<node name="imu_node" pkg="imu" type="imu_node">
+		<param name="serial_port" value="/dev/ttyBT" />
+	</node>
+	
+	<node name="conversion_node" pkg="imu" type="conversion_node" />
+
+	<node name="attitude_decision" pkg="attitude_decision" type="attitude_decision" output="screen" />
+
+	<node name="kine_controller" pkg="kine_controller" type="kine_controller" />
+
+</launch>
